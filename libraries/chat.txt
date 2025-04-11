@@ -1,0 +1,80 @@
+產生一個全視窗畫布，背景顏色為#d6ccc2，
+產生40個圓，大小50到100，
+顏色要鮮豔，亂數方式產生在整個視窗畫面，
+隨著滑鼠的左右移動，園的大小的變化幅度為10到120
+請把程式碼寫到sketch.js內
+
+---
+
+利用ul與li產生一個選單，選單的位置在右上角，
+選單顯示在左右通一行上面，選單的項目有五個，
+分別為首頁，自我介紹，作品集，測驗卷，教學影片
+
+---
+
+選單項目之間的間距要為30px，選項的高為50px
+選單的背景顏色為#fefae0，
+選單的文字顏色為#1b263b，
+選單的文字大小為18px，
+選單的文字字型為微軟正黑體，Arial，
+選單的文字在滑鼠移動到上面時，顏色要變成#c1121f，
+請把程式碼寫到style.css內  
+選單的背景顏色透明度設定為0.2
+
+li {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  background-color: rgba(254, 250, 224, 0.2);
+  color: #1b263b;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+li:hover {
+  color: #c1121f; /* 滑鼠移動到上面時的顏色 */
+}
+
+li ul {
+  display: none; /* 預設隱藏子選單 */
+  position: absolute;
+  top: 50px; /* 子選單顯示在主選單下方 */
+  left: 0;
+  background-color: rgba(254, 250, 224, 0.2);
+  padding: 10px 0;
+  list-style: none;
+  z-index: 3;
+}
+
+li:hover ul,
+li ul:hover {
+  display: block; /* 滑鼠移動到主選單或子選單時顯示子選單 */
+}
+
+li ul li {
+  padding: 5px 15px;
+  white-space: nowrap;
+}
+
+---
+
+把整個選單往左移，距離視窗的右邊框為100px
+
+---
+
+作品集內有子選單為第一周，第二周，第三周，第四周，有四個子選項
+選擇第一周選項則連線到https://github.com/yanwang010/20250328.git
+選擇第二周選項則連線到https://github.com/yanwang010/20250328.git
+選擇第三周選項則連線到
+顯示的網頁利用iframe嵌入到本網頁中
+sketch.js產生的動畫請放在最底層
+iframe顯示的網頁請放在第二層
+選單要放在最上層
+iframe的背景請設定透明度為0.2，顯示的寬高為視窗的80%，並置中
+
+---
+
+網頁一開始呈現時，iframe要隱藏起來，按了選項之後，才顯示iframe畫面
+當按了首頁，請把iframe隱藏起來。
