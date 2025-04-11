@@ -1,0 +1,76 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 微軟正黑體, Arial, sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  right: 100px; /* 距離右邊框100px */
+  display: flex;
+  gap: 30px; /* 選單項目之間的間距 */
+  background-color: rgba(254, 250, 224, 0.2); /* 背景透明度0.2 */
+  z-index: 3; /* 選單放在最上層 */
+}
+
+li {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  background-color: rgba(254, 250, 224, 0.2);
+  color: #1b263b;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+li:hover {
+  color: #c1121f; /* 滑鼠移動到上面時的顏色 */
+}
+
+li ul {
+  display: none; /* 預設隱藏子選單 */
+  position: absolute;
+  top: 50px; /* 子選單顯示在主選單下方 */
+  left: 0;
+  background-color: rgba(254, 250, 224, 0.2);
+  padding: 10px 0;
+  list-style: none;
+  z-index: 3;
+}
+
+li:hover ul,
+li ul:hover,
+li.active ul {
+  display: block; /* 滑鼠移動到主選單、子選單或點擊後保持顯示 */
+}
+
+li ul li {
+  padding: 5px 15px;
+  white-space: nowrap;
+}
+
+iframe {
+  display: none; /* 預設隱藏 */
+  position: absolute;
+  top: 10%; /* 置中顯示 */
+  left: 10%; /* 置中顯示 */
+  width: 80%; /* 寬度為視窗的 80% */
+  height: 80%; /* 高度為視窗的 80% */
+  background-color: rgba(255, 255, 255, 0.2); /* 背景透明度 0.2 */
+  border: none;
+  z-index: 1; /* 第二層 */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動畫與選單</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li onclick="showIframe('')">首頁</li>
+      <li onclick="showIframe('')">自我介紹</li>
+      <li onclick="showIframe('')">測驗卷</li>
+      <li onclick="showIframe('')">教學影片</li>
+      <li onclick="toggleMenu(this)">
+        作品集
+        <ul>
+          <li><a href="https://hackmd.io/@cfchen/BJD2JvYl0" target="_blank">第一周</a></li>
+          <li><a href="https://github.com/yanwang010/20250328.git" target="_blank">第二周</a></li>
+          <li><a href="https://hackmd.io/@lH4QItoUSZSYMfJXr0nzCA/rk7b-M8Ayx" target="_blank">第三周</a></li>
+          <li><a href="https://github.com/yanwang010/20250328.git" target="_blank">第四周</a></li>
+        </ul>
+      </li>
+    </ul>
+    <iframe id="content-frame"></iframe>
+
+    <script>
+      function showIframe(url) {
+        const iframe = document.getElementById('content-frame');
+        if (url) {
+          iframe.src = url; // 設定 iframe 的來源網址
+          iframe.style.display = 'block'; // 顯示 iframe
+
+          // 檢查 iframe 是否加載成功
+          iframe.onload = () => {
+            console.log('網站加載成功');
+          };
+          iframe.onerror = () => {
+            alert('此網站無法嵌入，將在新分頁中打開');
+            window.open(url, '_blank'); // 在新分頁中打開
+            iframe.style.display = 'none'; // 隱藏 iframe
+          };
+        } else {
+          iframe.style.display = 'none'; // 隱藏 iframe
+        }
+      }
+
+      function toggleMenu(element) {
+        // 移除其他選單的 active 類別
+        document.querySelectorAll('li').forEach((li) => li.classList.remove('active'));
+        // 切換當前選單的 active 類別
+        element.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
